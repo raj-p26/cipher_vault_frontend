@@ -1,0 +1,28 @@
+.appbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding: 8px 4px;
+  background-color: light-dark(
+    rgb(var(--surface-container)),
+    rgb(var(--surface-container-dark))
+  );
+  box-shadow: var(--elevation-level-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appbar-actions {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.appbar-leading > h1 {
+  font: var(--title-large);
+  color: light-dark(rgb(var(--on-surface)), rgb(var(--on-surface-dark)));
+}

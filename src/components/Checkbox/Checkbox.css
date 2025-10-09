@@ -1,0 +1,32 @@
+.checkbox-target-area {
+  height: 40px;
+  width: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkbox-target-area:focus {
+  outline: 2px solid
+    light-dark(rgb(var(--secondary)), rgb(var(--secondary-dark)));
+}
+
+.checkbox-container {
+  height: 18px;
+  width: 18px;
+  border-radius: 2px;
+  border: 2px solid
+    light-dark(
+      rgb(var(--on-surface-variant)),
+      rgb(var(--on-surface-variant-dark))
+    );
+  transition: all var(--fast-effects);
+}
+
+.checkbox-container.checked {
+  border: none;
+  background-color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+  color: light-dark(rgb(var(--on-primary)), rgb(var(--on-primary-dark)));
+}

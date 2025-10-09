@@ -1,0 +1,75 @@
+.card.base {
+  margin: 8px;
+  padding: 16px;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.card.elevated {
+  background-color: light-dark(
+    rgb(var(--surface-container-low)),
+    rgb(var(--surface-container-low-dark))
+  );
+  box-shadow: var(--elevation-level-1);
+}
+
+.card.elevated:hover {
+  box-shadow: var(--elevation-level-2);
+}
+
+.card.elevated.disabled {
+  outline: none;
+  background-color: light-dark(
+    rgba(var(--surface), 38%),
+    rgba(var(--surface-dark), 38%)
+  );
+  box-shadow: none;
+}
+
+.card.filled {
+  background-color: light-dark(
+    rgb(var(--surface-container-highest)),
+    rgb(var(--surface-container-highest-dark))
+  );
+}
+
+.card.filled:hover {
+  box-shadow: var(--elevation-level-1);
+}
+
+.card.filled.disabled {
+  outline: none;
+  box-shadow: none;
+  background-color: light-dark(
+    rgba(var(--surface-variant), 38%),
+    rgba(var(--surface-variant-dark), 38%)
+  );
+}
+
+.card.outlined {
+  border: 1px solid
+    light-dark(rgb(var(--outline-variant)), rgb(var(--outline-variant-dark)));
+  background-color: transparent;
+}
+
+.card.outlined:hover {
+  box-shadow: var(--elevation-level-1);
+}
+
+.card.outlined.disabled {
+  outline: none;
+  box-shadow: none;
+  background-color: light-dark(
+    rgba(var(--outline), 12%),
+    rgba(var(--outline-dark), 12%)
+  );
+}
+
+.card.elevated.disabled,
+.card.filled.disabled,
+.card.outlined.disabled {
+  color: light-dark(
+    rgba(var(--on-surface-variant), 38%),
+    rgba(var(--on-surface-variant-dark), 38%)
+  );
+}

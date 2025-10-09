@@ -1,0 +1,144 @@
+button.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: all var(--default-effects);
+}
+
+button.base:focus {
+  outline: 3px solid
+    light-dark(rgb(var(--secondary)), rgb(var(--secondary-dark)));
+  outline-offset: 2px;
+}
+
+button.base:disabled {
+  cursor: not-allowed;
+  background-color: light-dark(
+    rgba(var(--on-surface), 0.1),
+    rgba(var(--on-surface-dark), 0.1)
+  ) !important;
+  color: light-dark(
+    rgba(var(--on-surface), 0.38),
+    rgba(var(--on-surface-dark), 0.38)
+  ) !important;
+}
+
+button.elevated {
+  background-color: light-dark(
+    rgb(var(--surface-container-low)),
+    rgb(var(--surface-container-low-dark))
+  );
+  box-shadow: var(--elevation-level-1);
+}
+
+button.elevated:hover {
+  box-shadow: var(--elevation-level-2);
+}
+
+button.filled:hover {
+  box-shadow: var(--elevation-level-1);
+}
+
+button.tonal {
+  background-color: light-dark(
+    rgb(var(--secondary-container)),
+    rgb(var(--secondary-container-dark))
+  );
+  color: light-dark(
+    rgb(var(--on-secondary-container)),
+    rgb(var(--on-secondary-container-dark))
+  );
+}
+
+button.tonal:hover {
+  box-shadow: var(--elevation-level-1);
+}
+
+button.outlined {
+  background-color: transparent;
+  color: light-dark(
+    rgb(var(--on-surface-variant)),
+    rgb(var(--on-surface-variant-dark))
+  );
+  border: 1px solid
+    light-dark(rgb(var(--outline-variant)), rgb(var(--outline-variant-dark)));
+}
+
+button.text {
+  background-color: transparent;
+  color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+button.xs {
+  font-weight: 500;
+  padding: 0 12px;
+  height: 32px;
+  font-size: 14px;
+}
+
+button.sm {
+  font-weight: 500;
+  padding: 0 16px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.xs:hover,
+.sm:hover,
+.square.xs:hover,
+.square.sm:hover {
+  border-radius: 8px;
+}
+
+button.md {
+  padding: 0 24px;
+  font-weight: 500;
+  font-size: 16px;
+  height: 56px;
+}
+
+.md:hover,
+.square.md:hover {
+  border-radius: 12px;
+}
+
+.lg {
+  font-weight: 500;
+  padding: 0 48px;
+  font-size: 24px;
+  height: 96px;
+}
+
+.xl {
+  font-weight: 500;
+  padding: 0 48px;
+  font-size: 32px;
+  height: 136px;
+}
+
+.lg:hover,
+.xl:hover,
+.square.lg:hover,
+.square.xl:hover {
+  border-radius: 16px;
+}
+
+.rounded {
+  border-radius: 999px;
+}
+
+.square.xs,
+.square.sm {
+  border-radius: 12px;
+}
+
+.square.md {
+  border-radius: 16px;
+}
+
+.square.lg,
+.square.xl {
+  border-radius: 28px;
+}

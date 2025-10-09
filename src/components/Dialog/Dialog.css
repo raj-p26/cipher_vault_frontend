@@ -1,0 +1,36 @@
+.dialog-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 38%); */
+  z-index: 990;
+  transition: all var(--default-spatial);
+}
+
+.dialog-scrim.visible {
+  background-color: rgba(0, 0, 0, 38%);
+}
+
+.dialog {
+  width: 100%;
+  max-width: 560px;
+  z-index: 999;
+  background-color: light-dark(
+    rgb(var(--surface-container-high)),
+    rgb(var(--surface-container-high-dark))
+  );
+  border-radius: 28px;
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--elevation-level-3);
+  padding: 24px;
+  transition: all var(--default-spatial);
+}
+
+.dialog.visible {
+  top: 50%;
+}

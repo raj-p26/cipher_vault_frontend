@@ -1,0 +1,157 @@
+.input-container.filled {
+  background-color: light-dark(
+    rgb(var(--surface-container-highest)),
+    rgb(var(--surface-container-highest-dark))
+  );
+  position: relative;
+  padding: 8px 16px;
+  border-bottom: 1px solid
+    light-dark(
+      rgb(var(--on-surface-variant)),
+      rgb(var(--on-surface-variant-dark))
+    );
+  height: 56px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: text;
+}
+
+.input-container.filled:has(.input:valid),
+.input-container.filled:has(.input:focus) {
+  border-bottom: 3px solid
+    light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+.input-container.filled.invalid {
+  border-bottom: 3px solid light-dark(rgb(var(--error)), rgb(var(--error-dark))) !important;
+}
+
+.input-container.filled > div {
+  position: relative;
+  height: 100%;
+}
+
+.input-container.filled .input {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: light-dark(rgb(var(--on-surface)), rgb(var(--on-surface-dark)));
+  font: var(--body-large);
+  caret-color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+.input::placeholder {
+  opacity: 0;
+}
+
+.input-container.filled:has(.input:focus) .input::placeholder {
+  opacity: 1;
+}
+
+.input-container.filled .input-label {
+  color: light-dark(
+    rgb(var(--on-surface-variant)),
+    rgb(var(--on-surface-variant-dark))
+  );
+  font: var(--body-large);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--fast-effects);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.input:valid + .input-label,
+.input:focus + .input-label,
+.input:not(:placeholder-shown) + .input-label {
+  font: var(--body-small);
+  color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+.input-container.filled:has(.input:valid) .input-label,
+.input-container.filled:has(.input:focus) .input-label,
+.input-container.filled:has(.input:not(:placeholder-shown)) .input-label {
+  top: 15%;
+}
+
+.supporting-label {
+  font: var(--body-small);
+  color: light-dark(
+    rgb(var(--on-surface-variant)),
+    rgb(var(--on-surface-variant-dark))
+  );
+}
+
+.input-container.filled.invalid .input-label,
+.input-container.filled.invalid + .leading-container > .supporting-label {
+  color: light-dark(rgb(var(--error)), rgb(var(--error-dark)));
+}
+
+.leading-container {
+  margin: 4px 16px 0 16px;
+}
+
+.input-container.outlined {
+  position: relative;
+  min-height: 56px;
+  border: 1px solid light-dark(rgb(var(--outline)), rgb(var(--outline-dark)));
+  border-radius: 4px;
+  transition: all var(--fast-effects);
+}
+
+.input-container.outlined .input-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font: var(--body-large);
+  transition: all var(--fast-effects);
+}
+
+.input-container.outlined:has(.input:focus),
+.input-container.outlined:has(.input:valid) {
+  border: 3px solid light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+.input-container.outlined .input {
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 16px;
+  bottom: 0;
+  right: 16px;
+  border: none;
+  outline: none;
+  color: light-dark(rgb(var(--on-surface)), rgb(var(--on-surface-dark)));
+  font: var(--body-large);
+  caret-color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+.input-container.outlined:has(.input:valid) .input-label,
+.input-container.outlined:has(.input:focus) .input-label,
+.input-container.outlined:has(.input:not(:placeholder-shown)) .input-label {
+  top: 0;
+  transform: translateY(-50%);
+  font: var(--body-small);
+  padding-inline: 4px;
+  background-color: light-dark(rgb(var(--surface)), rgb(var(--surface-dark)));
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

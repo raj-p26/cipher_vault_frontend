@@ -1,0 +1,132 @@
+:root {
+  color-scheme: light dark;
+  --primary: 103, 80, 164;
+  --on-primary: 255, 255, 255;
+  --primary-container: 234, 221, 255;
+  --on-primary-container: 79, 55, 139;
+
+  --secondary: 98, 91, 113;
+  --on-secondary: 255, 255, 255;
+  --secondary-container: 232, 222, 248;
+  --on-secondary-container: 74, 68, 88;
+
+  --tertiary: 125, 82, 96;
+  --on-tertiary: 255, 255, 255;
+  --tertiary-container: 255, 216, 228;
+  --on-tertiary-container: 99, 59, 72;
+
+  --error: 179, 38, 30;
+  --on-error: 255, 255, 255;
+  --error-container: 249, 222, 220;
+  --on-error-container: 249, 222, 220;
+
+  --surface: 254, 247, 255;
+  --on-surface: 29, 27, 32;
+  --surface-variant: 231, 224, 236;
+  --on-surface-variant: 73, 69, 79;
+  --surface-container-highest: 230, 224, 233;
+  --surface-container-high: 236, 230, 240;
+  --surface-container: 243, 237, 247;
+  --surface-container-low: 247, 242, 250;
+  --surface-container-lowest: 255, 255, 255;
+  --inverse-surface: 50, 47, 53;
+  --inverse-on-surface: 245 239 247;
+
+  --outline: 121, 116, 126;
+  --outline-variant: 202, 196, 208;
+
+  /* dark color-scheme */
+  --primary-dark: 208, 188, 255;
+  --on-primary-dark: 56, 30, 114;
+  --primary-container-dark: 79, 55, 139;
+  --on-primary-container-dark: 234, 221, 255;
+
+  --secondary-dark: 204, 194, 220;
+  --on-secondary-dark: 51, 45, 65;
+  --secondary-container-dark: 74, 68, 88;
+  --on-secondary-container-dark: 232, 222, 248;
+
+  --tertiary-dark: 239, 184, 200;
+  --on-tertiary-dark: 73, 37, 50;
+  --tertiary-container-dark: 99, 59, 72;
+  --on-tertiary-container-dark: 255, 216, 228;
+
+  --error-dark: 242, 184, 181;
+  --on-error-dark: 96, 20, 16;
+  --error-container-dark: 140, 29, 24;
+  --on-error-container-dark: 249, 222, 220;
+
+  --surface-dark: 20, 18, 24;
+  --on-surface-dark: 230, 224, 233;
+  --surface-variant-dark: 73, 69, 79;
+  --on-surface-variant-dark: 202, 196, 208;
+  --surface-container-highest-dark: 54, 52, 59;
+  --surface-container-high-dark: 43, 41, 48;
+  --surface-container-dark: 33, 31, 38;
+  --surface-container-low-dark: 29, 27, 32;
+  --surface-container-lowest-dark: 15, 13, 19;
+  --inverse-surface-dark: 230, 224, 233;
+  --inverse-on-surface-dark: 50, 47, 53;
+
+  --outline-dark: 147, 143, 153;
+  --outline-variant-dark: 73, 69, 79;
+
+  /* Shadows */
+  --elevation-level-1: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  --elevation-level-2: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  --elevation-level-3: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  --elevation-level-4: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  --elevation-level-5: 0px 8px 10px -6px rgba(0, 0, 0, 0.2),
+    0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+
+  /* Easing values */
+  --fast-spatial: 350ms cubic-bezier(0.42, 1.67, 0.21, 0.9);
+  --default-spatial: 500ms cubic-bezier(0.38, 1.21, 0.22, 1);
+  --slow-spatial: 650ms cubic-bezier(0.39, 1.29, 0.35, 0.98);
+  --fast-effects: 150ms cubic-bezier(0.31, 0.94, 0.34, 1);
+  --default-effects: 200ms cubic-bezier(0.34, 0.8, 0.34, 1);
+  --slow-effects: 300ms cubic-bezier(0.34, 0.88, 0.34, 1);
+
+  /* Font styles */
+  --display-large: normal 57px "Roboto";
+  --display-medium: normal 45px "Roboto";
+  --display-small: normal 36px "Roboto";
+
+  --headline-large: normal 32px "Roboto";
+  --headline-medium: normal 28px "Roboto";
+  --headline-small: normal 24px "Roboto";
+
+  --title-large: normal 22px "Roboto";
+  --title-medium: normal 16px "Roboto";
+  --title-small: normal 14px "Roboto";
+
+  --body-large: normal 16px "Roboto";
+  --body-medium: normal 14px "Roboto";
+  --body-small: normal 12px "Roboto";
+
+  --label-large: 500 14px "Roboto";
+  --label-medium: 500 12px "Roboto";
+  --label-small: 500 11px "Roboto";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  background-color: light-dark(var(--surface), var(--surface-dark));
+}

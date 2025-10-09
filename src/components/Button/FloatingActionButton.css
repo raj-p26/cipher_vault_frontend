@@ -1,0 +1,63 @@
+.fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--elevation-level-3);
+  transition: all var(--fast-spatial);
+  cursor: pointer;
+  border: none;
+}
+
+.fab:hover {
+  box-shadow: var(--elevation-level-4);
+}
+
+.fab .fab-label {
+  overflow: hidden;
+  width: 0;
+  transition: all var(--fast-spatial);
+}
+
+.fab:hover .fab-label {
+  width: fit-content;
+  margin-left: 16px;
+}
+
+.fab:focus {
+  outline: 3px solid
+    light-dark(rgb(var(--secondary)), rgb(var(--secondary-dark)));
+  outline-offset: 2px;
+}
+
+.fab-baseline {
+  height: 56px;
+  width: fit-content;
+  min-width: 56px;
+  border-radius: 16px;
+}
+
+.fab-baseline:hover {
+  padding: 0 16px;
+}
+
+.fab-medium {
+  height: 80px;
+  width: fit-content;
+  min-width: 80px;
+  border-radius: 20px;
+}
+
+.fab-medium:hover {
+  padding: 0 26px;
+}
+
+.fab-large {
+  height: 96px;
+  width: fit-content;
+  min-width: 96px;
+  border-radius: 28px;
+}
+
+.fab-large:hover {
+  padding: 0 28px;
+}
