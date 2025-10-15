@@ -15,7 +15,7 @@ function Login(props: { onShowRegister: () => void }) {
     async (user: LoginUser) => {
       try {
         const response = await ky
-          .post("http://localhost:8080/auth/login", {
+          .post("http://10.106.20.50:8080/auth/login", {
             json: user,
           })
           .json<ServerResponse>();

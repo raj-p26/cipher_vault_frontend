@@ -8,9 +8,7 @@ import userStore from "../../stores/user-store";
 import Dialog from "../../components/Dialog/Dialog";
 import CredentialForm from "./CredentialForm";
 
-type CredentialProps = {
-  cred: Credential;
-};
+type CredentialProps = { cred: Credential };
 
 function CredentialItem(props: CredentialProps) {
   const [showDialog, setShowDialog] = useState<boolean>(false);
@@ -21,7 +19,7 @@ function CredentialItem(props: CredentialProps) {
 
   const remove = async () => {
     try {
-      await ky.delete(`http://localhost:8080/credentials/${c.id}`, {
+      await ky.delete(`http://10.106.20.50:8080/credentials/${c.id}`, {
         headers: { Authorization: user.token },
       });
 
@@ -45,13 +43,9 @@ function CredentialItem(props: CredentialProps) {
         >
           <div>
             <p style={{ font: "var(--title-large)", marginBottom: "1rem" }}>
-              {c.domain}
+              {c.cred_value}
             </p>
-            <p style={{ marginBottom: ".5rem", font: "var(--body-large)" }}>
-              <b>Email:</b> {c.email}
-            </p>
-            <p style={{ font: "var(--body-large)" }}>
-              <b>Password: </b>
+            <p style={{ font: "var(--body-large)", marginBottom: "1rem" }}>
               {c.password}
             </p>
             {c.inserted_at !== c.updated_at && (
@@ -77,7 +71,10 @@ function CredentialItem(props: CredentialProps) {
         <CredentialForm
           id={c.id}
           credential={{ ...c }}
-          onSaveCredential={updateCredential}
+          onSaveCredential={(c) => {
+            updateCredential(c);
+            setShowDialog(false);
+          }}
         />
       </Dialog>
     </>

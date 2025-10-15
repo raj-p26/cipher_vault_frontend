@@ -16,7 +16,7 @@ function Register(props: RegisterProps) {
   const registerUser = async (user: RegisterUser) => {
     try {
       const response = await ky
-        .post("http://localhost:8080/auth/register", { json: user })
+        .post("http://10.106.20.50:8080/auth/register", { json: user })
         .json<ServerResponse>();
 
       if (response.status === "success") {

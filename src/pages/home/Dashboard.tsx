@@ -24,7 +24,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (token) {
-      ky.get("http://localhost:8080/credentials", {
+      ky.get("http://10.106.20.50:8080/credentials", {
         headers: { Authorization: token },
       })
         .json<ServerResponse>()
