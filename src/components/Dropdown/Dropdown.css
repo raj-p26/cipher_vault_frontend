@@ -26,7 +26,7 @@
     light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
 }
 
-.dropdown-label {
+#dropdown-label {
   font: var(--body-small);
   color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
   margin-bottom: 8px;

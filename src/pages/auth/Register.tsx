@@ -5,6 +5,7 @@ import Input from "../../components/Input/Input";
 import userStore from "../../stores/user-store";
 import type { RegisterErrors, RegisterUser } from "../../types/user";
 import type { ServerResponse } from "../../types/server";
+import { BASE_URL } from "../../utils";
 
 type RegisterProps = { onShowLogin: () => void };
 
@@ -16,7 +17,7 @@ function Register(props: RegisterProps) {
   const registerUser = async (user: RegisterUser) => {
     try {
       const response = await ky
-        .post("http://10.106.20.50:8080/auth/register", { json: user })
+        .post(`${BASE_URL}/auth/register`, { json: user })
         .json<ServerResponse>();
 
       if (response.status === "success") {

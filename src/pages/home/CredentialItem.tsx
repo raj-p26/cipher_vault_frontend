@@ -7,6 +7,7 @@ import ky from "ky";
 import userStore from "../../stores/user-store";
 import Dialog from "../../components/Dialog/Dialog";
 import CredentialForm from "./CredentialForm";
+import { BASE_URL } from "../../utils";
 
 type CredentialProps = { cred: Credential };
 
@@ -19,7 +20,7 @@ function CredentialItem(props: CredentialProps) {
 
   const remove = async () => {
     try {
-      await ky.delete(`http://10.106.20.50:8080/credentials/${c.id}`, {
+      await ky.delete(`${BASE_URL}/credentials/${c.id}`, {
         headers: { Authorization: user.token },
       });
 

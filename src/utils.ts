@@ -7,3 +7,5 @@ export const CRED_OPTIONS: Record<string, string> = {
   contactNumber: "Contact Number",
   other: "Other",
 };
+
+export const BASE_URL = import.meta.env.VITE_BASE_URL!;

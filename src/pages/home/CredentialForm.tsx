@@ -11,7 +11,7 @@ import { useCredentialActions } from "../../stores/credential-store";
 import ky, { HTTPError } from "ky";
 import type { ServerResponse } from "../../types/server";
 import Dropdown from "../../components/Dropdown/Dropdown";
-import { CRED_OPTIONS } from "../../utils";
+import { BASE_URL, CRED_OPTIONS } from "../../utils";
 
 type CredentialFormProps = {
   onSaveCredential: (c: Credential) => void;
@@ -63,7 +63,7 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
       let resp: ServerResponse;
       if (props.id) {
         resp = await ky
-          .patch(`http://10.106.20.50:8080/credentials/${props.id}`, {
+          .patch(`${BASE_URL}/credentials/${props.id}`, {
             json: { ...credential, id: props.id },
             headers: { Authorization: user.token },
           })
@@ -74,7 +74,7 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
         }
       } else {
         resp = await ky
-          .post("http://10.106.20.50:8080/credentials/", {
+          .post(`${BASE_URL}/credentials/`, {
             json: credential,
             headers: { Authorization: user.token },
           })

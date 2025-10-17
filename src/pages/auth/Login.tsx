@@ -5,6 +5,7 @@ import Button from "../../components/Button/Button";
 import userStore from "../../stores/user-store";
 import type { LoginUser, LoginErrors } from "../../types/user";
 import type { ServerResponse } from "../../types/server";
+import { BASE_URL } from "../../utils";
 
 function Login(props: { onShowRegister: () => void }) {
   const [errors, setErrors] = useState<LoginErrors>({});
@@ -15,7 +16,7 @@ function Login(props: { onShowRegister: () => void }) {
     async (user: LoginUser) => {
       try {
         const response = await ky
-          .post("http://10.106.20.50:8080/auth/login", {
+          .post(`${BASE_URL}/auth/login`, {
             json: user,
           })
           .json<ServerResponse>();

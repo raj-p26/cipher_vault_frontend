@@ -33,13 +33,17 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
           className={`dropdown ${active || selected ? "active" : ""}`.trim()}
           onClick={() => setActive((a) => !a)}
           tabIndex={0}
-          onBlur={() => setActive(false)}
+          role="listbox"
+          aria-labelledby="dropdown-label"
         >
           <div>
-            {label && <p className="dropdown-label">{label}</p>}
+            {label && <p id="dropdown-label">{label}</p>}
             <p style={{ userSelect: "none" }}>{s ?? "Select"}</p>
           </div>
-          <ChevronDown className={`dropdown-icon ${active ? "active" : ""}`} />
+          <ChevronDown
+            aria-label="dropdown trailing icon"
+            className={`dropdown-icon ${active ? "active" : ""}`}
+          />
         </div>
         <div className={`dropdown-menu ${active ? "active" : ""}`.trim()}>
           {Object.entries(items).map(([k, v]) => (
@@ -53,6 +57,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
               className={`dropdown-item ${
                 k === selected ? "selected" : ""
               }`.trim()}
+              role="option"
             >
               {v}
             </div>
