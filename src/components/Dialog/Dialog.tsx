@@ -47,6 +47,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
       <div
         className={`dialog-scrim ${visible ? "visible" : ""}`}
         onClick={close}
+        aria-hidden
       ></div>
       <div className={`dialog ${visible ? "visible" : ""}`}>
         {title && (

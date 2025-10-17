@@ -12,6 +12,7 @@ import { type ServerResponse } from "../../types/server";
 import Loading from "../../components/Loading";
 import { Password } from "../../assets/icons";
 import GeneratePassword from "./GeneratePassword";
+import { BASE_URL } from "../../utils";
 
 type DialogAction = "new-cred" | "gen-pass" | "none";
 
@@ -24,7 +25,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (token) {
-      ky.get("http://localhost:8080/credentials", {
+      ky.get(`${BASE_URL}/credentials`, {
         headers: { Authorization: token },
       })
         .json<ServerResponse>()

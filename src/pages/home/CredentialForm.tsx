@@ -10,6 +10,8 @@ import Button from "../../components/Button/Button";
 import { useCredentialActions } from "../../stores/credential-store";
 import ky, { HTTPError } from "ky";
 import type { ServerResponse } from "../../types/server";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import { BASE_URL, CRED_OPTIONS } from "../../utils";
 
 type CredentialFormProps = {
   onSaveCredential: (c: Credential) => void;
@@ -18,10 +20,18 @@ type CredentialFormProps = {
 };
 
 const CredentialForm: React.FC<CredentialFormProps> = (props) => {
+  const { credential: c } = props;
+  const initialSelection = c
+    ? { name: c.cred_type, value: CRED_OPTIONS[c.cred_type] }
+    : undefined;
+
   const [errors, setErrors] = useState<CredentialErrors>({});
   const [serverError, setServerError] = useState("");
   const user = userStore((s) => s.user);
   const { addCredential } = useCredentialActions();
+  const [credType, setCredType] = useState<
+    { name: string; value: string } | undefined
+  >(initialSelection);
 
   const validateNotEmpty = (ev: React.FocusEvent<HTMLInputElement>) => {
     const { name, value } = ev.target;
@@ -35,19 +45,25 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
   const submit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
+    if (credType === undefined) {
+      setServerError("Credential Type must be set");
+      return;
+    }
+
     const formData = new FormData(ev.currentTarget);
     const credential: CreateCredential = {
       user_id: user.id!,
-      domain: formData.get("domain")!.toString(),
-      email: formData.get("email")!.toString(),
+      cred_type: credType!.name,
+      cred_value: formData.get("cred_value")!.toString(),
       password: formData.get("password")!.toString(),
+      comment: formData.get("comment")!.toString(),
     };
 
     try {
       let resp: ServerResponse;
       if (props.id) {
         resp = await ky
-          .patch(`http://localhost:8080/credentials/${props.id}`, {
+          .patch(`${BASE_URL}/credentials/${props.id}`, {
             json: { ...credential, id: props.id },
             headers: { Authorization: user.token },
           })
@@ -58,7 +74,7 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
         }
       } else {
         resp = await ky
-          .post("http://localhost:8080/credentials/", {
+          .post(`${BASE_URL}/credentials/`, {
             json: credential,
             headers: { Authorization: user.token },
           })
@@ -77,27 +93,18 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
   };
 
   return (
-    <form onSubmit={submit}>
-      <Input
-        label="Domain name"
-        name="domain"
-        type="url"
-        placeholder="https://www.example.com"
-        onBlur={validateNotEmpty}
-        hasError={errors.domain !== undefined}
-        supportingText={errors.domain}
-        defaultValue={props.credential?.domain}
+    <form onSubmit={submit} noValidate>
+      <Dropdown
+        label="Credential Type"
+        items={CRED_OPTIONS}
+        selected={credType?.name}
+        onSelect={(name, value) => setCredType({ name, value })}
       />
       <div style={{ margin: "16px 0" }}></div>
       <Input
-        label="Email Address"
-        name="email"
-        type="email"
-        placeholder="test@example.com"
-        onBlur={validateNotEmpty}
-        hasError={errors.email !== undefined}
-        supportingText={errors.email}
-        defaultValue={props.credential?.email}
+        label="Credential Value"
+        name="cred_value"
+        defaultValue={props.credential?.cred_value}
       />
       <div style={{ margin: "16px 0" }}></div>
       <Input
@@ -110,10 +117,17 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
         defaultValue={props.credential?.password}
       />
       <div style={{ margin: "16px 0" }}></div>
-      {serverError && <p>{serverError}</p>}
+      <Input
+        label="Note"
+        name="comment"
+        type="text"
+        defaultValue={props.credential?.comment}
+      />
+      <div style={{ margin: "16px 0" }}></div>
+      {serverError && <p className="server-error-label">{serverError}</p>}
       <div style={{ margin: "16px 0" }}></div>
       <div style={{ width: "fit-content", marginLeft: "auto" }}>
-        <Button>{props.id ? "Update" : "Add"}</Button>
+        <Button variant="filled">{props.id ? "Update" : "Add"}</Button>
       </div>
     </form>
   );

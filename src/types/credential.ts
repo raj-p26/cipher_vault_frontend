@@ -1,8 +1,9 @@
 export type Credential = {
   id: string;
   user_id: string;
-  domain: string;
-  email: string;
+  cred_type: string;
+  cred_value: string;
+  comment?: string;
   password: string;
   inserted_at: Date;
   updated_at: Date;
@@ -14,5 +15,5 @@ export type CreateCredential = Omit<
 >;
 
 export type CredentialErrors = Partial<
-  Pick<Credential, "domain" | "email" | "password">
+  Pick<Credential, "cred_type" | "password">
 >;

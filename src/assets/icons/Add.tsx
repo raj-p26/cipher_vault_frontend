@@ -2,8 +2,11 @@ import { memo } from "react";
 import { type IconProps, defaultIconProps } from ".";
 
 function Add(props: IconProps) {
-  const { size = defaultIconProps.size, color = defaultIconProps.color } =
-    props;
+  const {
+    size = defaultIconProps.size,
+    color = defaultIconProps.color,
+    ...rest
+  } = props;
   return (
     <>
       <svg
@@ -12,6 +15,7 @@ function Add(props: IconProps) {
         height={`${size}px`}
         width={`${size}px`}
         fill={color}
+        {...rest}
       >
         <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
       </svg>

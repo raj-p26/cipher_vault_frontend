@@ -1,0 +1,99 @@
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown {
+  background-color: light-dark(
+    rgb(var(--surface-container-highest)),
+    rgb(var(--surface-container-highest-dark))
+  );
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 56px;
+  font: var(--body-large);
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid
+    light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+  outline: none;
+}
+
+.dropdown.active,
+.dropdown:focus {
+  border-bottom: 3px solid
+    light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+#dropdown-label {
+  font: var(--body-small);
+  color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+  margin-bottom: 8px;
+}
+
+.dropdown-icon {
+  fill: light-dark(
+    rgb(var(--on-surface-variant)),
+    rgb(var(--on-surface-variant-dark))
+  );
+  transition: var(--default-spatial);
+}
+
+.dropdown-icon.active {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  background-color: light-dark(
+    rgb(var(--surface-container)),
+    rgb(var(--surface-container-dark))
+  );
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  border-radius: 4px;
+  height: 0%;
+  overflow: hidden;
+  transition: var(--slow-effects);
+  box-shadow: var(--elevation-level-2);
+  z-index: 99;
+}
+
+.dropdown-menu.active {
+  display: block;
+  height: 240px;
+  overflow: scroll;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 12px;
+  font: var(--body-large);
+}
+
+.dropdown-item.selected {
+  background-color: light-dark(
+    rgb(var(--secondary-container)),
+    rgb(var(--secondary-container-dark))
+  );
+  color: light-dark(
+    rgb(var(--on-secondary-container)),
+    rgb(var(--on-secondary-container-dark))
+  );
+}
+
+.dropdown-item:hover,
+.dropdown-item.selected:hover {
+  background-color: light-dark(
+    rgba(var(--on-surface), 0.08),
+    rgba(var(--on-surface-dark), 0.08)
+  );
+  color: light-dark(rgb(var(--on-surface)), rgb(var(--on-surface-dark)));
+}

@@ -130,3 +130,8 @@
 html {
   background-color: light-dark(var(--surface), var(--surface-dark));
 }
+
+.server-error-label {
+  font: var(--label-medium);
+  color: light-dark(rgb(var(--error)), rgb(var(--error-dark)));
+}

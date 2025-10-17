@@ -1,6 +1,6 @@
 import { defaultIconProps, type IconProps } from ".";
 
-export default function Check(props: IconProps) {
+export const ChevronDown: React.FC<IconProps> = (props) => {
   const {
     size = defaultIconProps.size,
     color = defaultIconProps.color,
@@ -15,7 +15,7 @@ export default function Check(props: IconProps) {
       fill={color}
       {...rest}
     >
-      <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+      <path d="M480-360 280-560h400L480-360Z" />
     </svg>
   );
-}
+};
