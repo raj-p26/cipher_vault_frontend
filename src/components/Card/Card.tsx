@@ -19,7 +19,7 @@ function Cart(props: CardProps) {
       className={`card base ${type} ${disabled ? "disabled" : ""}`}
       style={{
         width: props.width || "fit-content",
-        height: props.height,
+        height: props.height || "auto",
       }}
     >
       {props.children}
