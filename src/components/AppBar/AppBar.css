@@ -5,14 +5,18 @@
   right: 0;
   z-index: 99;
   padding: 8px 4px;
+  background-color: light-dark(rgb(var(--surface)), rgb(var(--surface-dark)));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.appbar-container.scrolled {
   background-color: light-dark(
     rgb(var(--surface-container)),
     rgb(var(--surface-container-dark))
   );
   box-shadow: var(--elevation-level-2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .appbar-actions {

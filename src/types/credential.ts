@@ -7,6 +7,7 @@ export type Credential = {
   password: string;
   inserted_at: Date;
   updated_at: Date;
+  pinned?: 0 | 1;
 };
 
 export type CreateCredential = Omit<

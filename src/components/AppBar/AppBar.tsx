@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import "./AppBar.css";
 import Button from "../Button/Button";
 import themeStore from "../../stores/theme-store";
@@ -14,8 +14,20 @@ const AppBar: React.FC = () => {
     setUser({});
   };
 
+  const [hasScrolled, setHasScrolled] = useState<boolean>(window.scrollY > 0);
+
+  useEffect(() => {
+    const handleEvent = () => setHasScrolled(window.scrollY > 0);
+
+    window.addEventListener("scroll", handleEvent);
+
+    return () => {
+      window.removeEventListener("scroll", handleEvent);
+    };
+  }, []);
+
   return (
-    <div className="appbar-container">
+    <div className={`appbar-container ${hasScrolled ? "scrolled" : ""}`.trim()}>
       <div className="appbar-leading">
         <h1>Cipher Vault</h1>
       </div>
