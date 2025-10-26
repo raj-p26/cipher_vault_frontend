@@ -50,7 +50,7 @@ function CredentialItem(props: CredentialProps) {
 
   return (
     <>
-      <Card type="outlined">
+      <Card type="outlined" width={"90%"}>
         <div
           style={{
             display: "flex",

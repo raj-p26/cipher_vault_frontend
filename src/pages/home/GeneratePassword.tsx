@@ -131,7 +131,6 @@ function GeneratePassword() {
         </p>
       )}
       <Input
-        variant="outlined"
         label="Password Length"
         hasError={error !== ""}
         supportingText={error}
