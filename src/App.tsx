@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <AppBar />
-      <div style={{ marginTop: "80px" }}>
+      <div className="app-container">
         <Outlet />
       </div>
     </>

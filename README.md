@@ -9,6 +9,9 @@ For now, CipherVault has these features:
 - User authentication.
 - Password generator.
 - Password creation, updation, deletion and listing.
+- Pinning and unpinning a credential record.
+- Filtering records based on credentials types.
+- Light/Dark mode.
 
 ## Getting Started
 
