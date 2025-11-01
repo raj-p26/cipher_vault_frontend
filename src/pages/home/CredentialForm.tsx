@@ -118,7 +118,7 @@ const CredentialForm: React.FC<CredentialFormProps> = (props) => {
       />
       <div style={{ margin: "16px 0" }}></div>
       <Input
-        label="Note"
+        label="Comment"
         name="comment"
         type="text"
         defaultValue={props.credential?.comment}

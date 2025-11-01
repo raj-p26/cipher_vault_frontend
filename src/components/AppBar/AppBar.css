@@ -26,7 +26,10 @@
   column-gap: 16px;
 }
 
-.appbar-leading > h1 {
+.appbar-leading h1 {
   font: var(--title-large);
-  color: light-dark(rgb(var(--on-surface)), rgb(var(--on-surface-dark)));
+  color: light-dark(
+    rgb(var(--on-surface)),
+    rgb(var(--on-surface-dark))
+  ) !important;
 }

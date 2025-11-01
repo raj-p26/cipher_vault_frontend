@@ -1,0 +1,39 @@
+.switch-container {
+  position: relative;
+  border-radius: 999px;
+  border: 2px solid light-dark(rgb(var(--outline)), rgb(var(--outline-dark)));
+  height: 32px;
+  width: 52px;
+  background-color: light-dark(
+    rgb(var(--surface-container-highest)),
+    rgb(var(--surface-container-highest-dark))
+  );
+  align-items: center;
+
+  &.active {
+    border: none;
+    background-color: light-dark(rgb(var(--primary)), rgb(var(--primary-dark)));
+  }
+  cursor: pointer;
+}
+
+.switch-handle {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  border-radius: 999px;
+  background-color: light-dark(rgb(var(--outline)), rgb(var(--outline-dark)));
+  transition: all var(--fast-spatial);
+  top: 50%;
+  transform: translate(25%, -50%);
+
+  &.active {
+    background-color: light-dark(
+      rgb(var(--on-primary)),
+      rgb(var(--on-primary-dark))
+    );
+    height: 24px;
+    width: 24px;
+    transform: translate(100%, -50%);
+  }
+}

@@ -1,0 +1,13 @@
+.profile-container {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.error-label {
+  margin: 8px 0;
+  color: light-dark(rgb(var(--error)), rgb(var(--error-dark)));
+  font: var(--label-large);
+}

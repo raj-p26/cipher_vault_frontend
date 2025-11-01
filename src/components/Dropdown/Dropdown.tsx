@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown } from "../../assets/icons";
+import { ChevronDown } from "../../icons";
 import "./Dropdown.css";
 
 type DropdownProps = {

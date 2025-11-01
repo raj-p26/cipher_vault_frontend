@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import userStore from "../../stores/user-store";
 import FloatingActionButton from "../../components/Button/FloatingActionButton";
-import Add from "../../assets/icons/Add";
+import Add from "../../icons/Add";
 import CredentialsList from "./CredentialsList";
 import Dialog from "../../components/Dialog/Dialog";
 import CredentialForm from "./CredentialForm";
@@ -10,7 +10,7 @@ import { useCredentialActions } from "../../stores/credential-store";
 import ky from "ky";
 import { type ServerResponse } from "../../types/server";
 import Loading from "../../components/Loading";
-import { Password } from "../../assets/icons";
+import { Password } from "../../icons";
 import GeneratePassword from "./GeneratePassword";
 import { BASE_URL } from "../../utils";
 

@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Input from "../../components/Input/Input";
-import Check from "../../assets/icons/Check";
+import Check from "../../icons/Check";
 
 const NUMS = "0123456789";
 const ALPHABETS = "abcdefghijklmnopqrstuvwxyz";
