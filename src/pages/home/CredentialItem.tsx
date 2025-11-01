@@ -8,8 +8,8 @@ import Dialog from "../../components/Dialog/Dialog";
 import CredentialForm from "./CredentialForm";
 import { BASE_URL, CRED_OPTIONS } from "../../utils";
 import Button from "../../components/Button/Button";
-import Pin from "../../assets/icons/Pin";
-import Unpin from "../../assets/icons/Unpin";
+import Pin from "../../icons/Pin";
+import Unpin from "../../icons/Unpin";
 
 type CredentialProps = { cred: Credential };
 
@@ -68,9 +68,11 @@ function CredentialItem(props: CredentialProps) {
             <p style={{ font: "var(--body-large)", marginBottom: "1rem" }}>
               <b>Password:</b> {c.password}
             </p>
-            <p style={{ font: "var(--body-large)" }}>
-              <b>Comment:</b> {c.comment}
-            </p>
+            {c.comment && (
+              <p style={{ font: "var(--body-large)" }}>
+                <b>Comment:</b> {c.comment}
+              </p>
+            )}
             {c.inserted_at !== c.updated_at && (
               <p style={{ font: "var(--label-small)" }}>(Edited)</p>
             )}

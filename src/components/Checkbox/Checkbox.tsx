@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./Checkbox.css";
-import Check from "../../assets/icons/Check";
+import Check from "../../icons/Check";
 
 type CheckboxProps = {
   checked?: boolean;
@@ -42,7 +42,7 @@ export default function Checkbox(props: CheckboxProps) {
 
       if (pRef) pRef.removeEventListener("click", onClick);
     };
-  }, [checked, onChange]);
+  }, [checked, name, onChange]);
 
   return (
     <div

@@ -51,7 +51,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
       ></div>
       <div className={`dialog ${visible ? "visible" : ""}`}>
         {title && (
-          <h1 style={{ font: "var(--headline-small)", marginBottom: 16 }}>
+          <h1 style={{ font: "var(--headline-large)", marginBottom: 16 }}>
             {title}
           </h1>
         )}
